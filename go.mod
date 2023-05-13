@@ -1,4 +1,4 @@
-module ebpfdbg
+module github.com/ph1048/ebpfdbg
 
 go 1.18
 
