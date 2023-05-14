@@ -22,4 +22,4 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: GO111MODULE=on go build -v
+      run: go build -v ./...

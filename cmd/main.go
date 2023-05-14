@@ -1,7 +1,6 @@
 package main
 
 import (
-	"ebpfdbg/ebpflog"
 	"fmt"
 	"log"
 	"net/http"
@@ -9,6 +8,7 @@ import (
 	"strconv"
 
 	"github.com/alecthomas/kong"
+	"github.com/ph1048/ebpfdbg/ebpflog"
 )
 
 var CLI struct {
