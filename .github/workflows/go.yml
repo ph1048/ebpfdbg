@@ -22,5 +22,5 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go mod download && go build -v ./...
+      run: go build -v ./...
 
