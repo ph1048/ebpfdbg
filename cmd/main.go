@@ -13,7 +13,8 @@ import (
 
 var CLI struct {
 	Serve struct {
-		Port int `help:"HTTP port to listen" default:"31337"`
+		Port    int    `help:"HTTP port to listen" default:"31337"`
+		Address string `help:"Interface IP to listen on" default:"0.0.0.0"`
 	} `cmd:"" help:"Serve HTML based interface via HTTP"`
 	Generate struct {
 		Path string `help:"Path to save HTML file" default:"out.html"`
@@ -37,10 +38,13 @@ func main() {
 				log.Fatal(err)
 			}
 		})
-		listenPort := "127.0.0.1:" + strconv.Itoa(CLI.Serve.Port)
+		listenPort := CLI.Serve.Address + ":" + strconv.Itoa(CLI.Serve.Port)
 		fmt.Println("Serving on http://" + listenPort)
 		fmt.Println("Press Ctrl+C to stop")
-		http.ListenAndServe(listenPort, nil)
+		err := http.ListenAndServe(listenPort, nil)
+		if err != nil {
+			log.Fatal(err)
+		}
 	case "generate":
 		file, err := os.Open(CLI.Input)
 		if err != nil {

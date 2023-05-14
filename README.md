@@ -8,7 +8,12 @@ If you see an error message from eBPF verifier due to loading of your program, y
 Make sure your log is not truncated to default 65535 bytes. Save it to a file.
 ### 2. Run eBPF verifier against it
 You need to have Go compiler 1.19 or higher on your system.
-`go run github.com/ph1048/ebpfdbg/cmd/ serve --input path/to/log`
+Run the following:
+
+```
+go get github.com/ph1048/ebpfdbg/cmd/
+go run github.com/ph1048/ebpfdbg/cmd/ serve --input path/to/log
+```
 ### 3. Open URL in web browser
 Depending on the verifier log size, this page might be heavy.
 
