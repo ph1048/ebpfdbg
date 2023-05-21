@@ -2,9 +2,10 @@
 This project is aimed to help debug large eBPF verifier error logs.
 This simple utility allows to post-process eBPF verifier log to a human-readable HTML page.
 
----
 
 一次滂沱大雨的来临，你需要一把保护伞。eBPF排错程序为你的软件排忧解难。
+
+---
 
 ## How to use
 ### 1. Get a file with eBPF verifier log
@@ -20,6 +21,13 @@ go run github.com/ph1048/ebpfdbg/cmd/ serve --input path/to/log
 ```
 ### 3. Open URL in web browser
 Depending on the verifier log size, this page might be heavy.
+
+---
+
+## Screenshots
+
+![screenshot](pic/scr1.png "Screenshot")
+![screenshot](pic/scr2.png "Screenshot")
 
 ## Contribution
 Ways to contribute:
