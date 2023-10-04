@@ -16,9 +16,17 @@ You need to have Go compiler 1.19 or higher on your system.
 Run the following:
 
 ```
-go get github.com/ph1048/ebpfdbg/cmd/
-go run github.com/ph1048/ebpfdbg/cmd/ serve --input path/to/log
+go get github.com/ph1048/ebpfdbg/cmd/ebpfdbg
+go run github.com/ph1048/ebpfdbg/cmd/ebpfdbg serve --input path/to/log
 ```
+
+Or
+
+```Bash
+go install github.com/ph1048/ebpfdbg/cmd/ebpfdbg@latest
+$(go env GOBIN)/ebpfdbg serve --input path/to/log
+```
+
 ### 3. Open URL in web browser
 Depending on the verifier log size, this page might be heavy.
 
