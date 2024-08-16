@@ -61,6 +61,6 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("Written to", CLI.Input)
+		fmt.Println("Written to", CLI.Generate.Path)
 	}
 }

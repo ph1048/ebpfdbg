@@ -25,7 +25,7 @@ func (l *logContext) processFromMessage(in string, w io.Writer) {
 		fmt.Fprintf(w, "Visited state ✔")
 		return
 	}
-	l.processRegisterDump(rest, w)
+	l.processRegisterDump(rest, w, false)
 }
 
 func (l *logContext) processParentMessage(in string, w io.Writer) {
@@ -185,7 +185,7 @@ func (l *logContext) processLine(in string, skip *bool, w io.Writer) {
 		fmt.Fprintln(buf, l.processLineEbpf(in, false))
 		l.stateCode = true
 	} else if strings.HasPrefix(in, "R0") {
-		l.processRegisterDump(in, buf)
+		l.processRegisterDump(in, buf, false)
 	} else if strings.HasPrefix(in, "parent") {
 		l.processParentMessage(in, buf)
 	} else if strings.HasPrefix(in, "from ") {
@@ -194,6 +194,8 @@ func (l *logContext) processLine(in string, skip *bool, w io.Writer) {
 		isStartingBlock = true
 	} else if strings.HasPrefix(in, "processed ") {
 		fmt.Fprintln(buf, l.processLineRes(in))
+	} else if l.newRegDmpRegEx.MatchString(in) {
+		l.processRegisterDump(in, buf, true)
 	} else {
 		fmt.Fprintln(buf, l.processLineErr(in))
 	}

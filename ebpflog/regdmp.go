@@ -123,11 +123,15 @@ func newRegisterDump(in string) stateDump {
 
 var gTblId = 0
 
-func (l *logContext) processRegisterDump(in string, w io.Writer) {
+func (l *logContext) processRegisterDump(in string, w io.Writer, newVariant bool) {
+	if newVariant {
+		parts := l.newRegDmpRegEx.FindStringSubmatch(in)
+		in = parts[2]
+	}
 	sd := newRegisterDump(in)
 	gTblId++
 	fmt.Fprintf(w, "<div class=\"regdump\">\n")
-	fmt.Fprintf(w, "<a class=\"button\" onclick=\"toggleshow(this)\">%sShow/hide preceding state</a>\n", getIcon("👁"))
+	fmt.Fprintf(w, "<a class=\"button\" onclick=\"toggleshow(this)\">%s</a>\n", getIcon("👁"))
 	fmt.Fprintf(w, "<div class=\"regdumpcontent\">\n")
 
 	fmt.Fprintf(w, "<div class=\"registers\">Registers\n")

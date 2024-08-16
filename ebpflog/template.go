@@ -7,7 +7,7 @@ var header string = `
 <head>
 <style>
 body {
-	font-family: Consolas;
+	font-family: Consolas, Menlo, Monaco, monospace;
 	background: #eaf7fa;
 }
 .src {
