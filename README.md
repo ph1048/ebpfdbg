@@ -7,7 +7,7 @@ This simple utility allows to post-process eBPF verifier log to a human-readable
 
 ---
 
-## How to use
+## Quick usage guide
 ### 1. Get a file with eBPF verifier log
 If you see an error message from eBPF verifier due to loading of your program, you need to extract full eBPF verifier logs.
 Make sure your log is not truncated to default 65535 bytes. Save it to a file.
@@ -16,15 +16,7 @@ You need to have Go compiler 1.19 or higher on your system.
 Run the following:
 
 ```
-go get github.com/ph1048/ebpfdbg/cmd/ebpfdbg
-go run github.com/ph1048/ebpfdbg/cmd/ebpfdbg serve --input path/to/log
-```
-
-Or
-
-```Bash
-go install github.com/ph1048/ebpfdbg/cmd/ebpfdbg@latest
-$(go env GOBIN)/ebpfdbg serve --input path/to/log
+go run github.com/ph1048/ebpfdbg/cmd@latest serve --input path/to/log
 ```
 
 ### 3. Open URL in web browser
