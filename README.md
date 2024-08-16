@@ -16,7 +16,7 @@ You need to have Go compiler 1.19 or higher on your system.
 Run the following:
 
 ```
-go run github.com/ph1048/ebpfdbg/cmd@latest serve --input path/to/log
+go run github.com/ph1048/ebpfdbg/cmd@v1.0.2 serve --input verifier.log
 ```
 
 ### 3. Open URL in web browser
